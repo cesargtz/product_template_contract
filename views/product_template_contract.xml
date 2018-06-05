@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record model="ir.ui.view" id="view_product_template_contract">
+    <field name="name">product.template.contract.form</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="groups_id" eval="[(4, ref('access_product_page_cost'))]"/>
+    <field name="arch" type="xml">
+      <field name="uom_po_id" position="after">
+        <field name="consider_contract" string="Considerar para contrato"/>
+      </field>
+      <xpath expr="//page[@name='sales']" position="after">
+        <page name="Cost" string="Costo" >
+          <group col="2">
+            <field name="calculate_cost" string="Considerar para costo"/>
+            <field name="sum_tons_cost" string="Considerar para la suma de tns en consto" attrs="{'invisible': [('calculate_cost', '=', False)]}"/>
+          </group>
+            <group col="2" string="Inventario Inicial" attrs="{'invisible': [('sum_tons_cost', '=', False)]}">
+              <group col="2" >
+                  <field name="updated_day" string="Ultima Actualización"  />
+                  <field name="initial_inventory_tn" string="Importe al día" />
+                  <field name="initial_inventory_import" string="Toneladas al día" />
+              </group>
+              <group col="2">
+                  <field name="initial_year"/>
+                  <field name="initial_import" string="Importe Inicial"  />
+                  <field name="initial_tons" string="Toneladas Iniciales" />
+              </group>
+            </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record model="res.groups" id="access_product_page_cost">
+    <field name="name">Invetario / Costos</field>
+  </record>
+</odoo>
