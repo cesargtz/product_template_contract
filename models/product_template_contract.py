@@ -16,6 +16,8 @@ class product_template_contract(models.Model):
     initial_tons = fields.Float()
     initial_year = fields.Date()
 
+    journal_id = fields.Many2one('account.journal', 'Diario')
+
     @api.one
     @api.constrains('sum_tons_cost')
     def _check_field(self):

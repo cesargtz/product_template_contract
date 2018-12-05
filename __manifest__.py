@@ -17,8 +17,8 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product',],
-
+    'depends': ['base','product'],
+    # Una de las vistas hereda de account.product_template_form_view, que es el modulo que agrega las cuentas contables en los productos
     # always loaded
     'data': [
         'security/access_group.xml',
